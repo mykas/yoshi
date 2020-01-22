@@ -1,6 +1,7 @@
 import path from 'path';
 import fs from 'fs-extra';
 import { FlowEditorModel, ComponentModel } from '../model';
+import controllerEntry from './templates/ControllerEntryContent';
 
 const viewerScriptWrapperPath =
   'yoshi-flow-editor-runtime/build/viewerScript.js';
@@ -16,13 +17,11 @@ const viewerScriptWrapper = (
         `${component.name}ViewerScript.js`,
       );
 
-      const generateControllerEntryContent = `
-    import {createControllers as createControllersWrapper, initAppForPage as initAppForPageWrapper} from '${viewerScriptWrapperPath}';
-    import userController from '${component.controllerFileName}';
-    import userInitApp from '${model.initApp}';
-
-    export const initAppForPage = initAppForPageWrapper;
-    export const createControllers = createControllersWrapper(userController, userInitApp);`;
+      const generateControllerEntryContent = controllerEntry({
+        viewerScriptWrapperPath,
+        controllerFileName: component.controllerFileName,
+        initAppPath: model.initApp,
+      });
 
       fs.outputFileSync(
         generatedWidgetEntryPath,

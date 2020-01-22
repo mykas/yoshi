@@ -1,6 +1,7 @@
 import path from 'path';
 import fs from 'fs-extra';
 import { FlowEditorModel, ComponentModel } from '../model';
+import editorEntryTemplate from './templates/EditorAppEntryContent';
 
 const editorAppWrapperPath =
   'yoshi-flow-editor-runtime/build/EditorAppWrapper.js';
@@ -16,18 +17,12 @@ const componentWrapper = (
         `${component.name}EditorApp.js`,
       );
 
-      const generateWidgetEntryContent = `
-    import React from 'react';
-    import ReactDOM from 'react-dom';
-    import EditorAppWrapper from '${editorAppWrapperPath}';
-
-    import Component from '${component.fileName}';
-    import createController from '${component.controllerFileName}';
-    import initApp from '${model.initApp}';
-
-    const EditorApp = EditorAppWrapper(Component, createController, initApp);
-
-    ReactDOM.render(React.createElement(EditorApp, null), document.getElementById('root'));`;
+      const generateWidgetEntryContent = editorEntryTemplate({
+        editorAppWrapperPath,
+        componentFileName: component.fileName,
+        controllerFileName: component.controllerFileName,
+        initAppPath: model.initApp,
+      });
 
       fs.outputFileSync(generatedWidgetEntryPath, generateWidgetEntryContent);
 

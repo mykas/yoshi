@@ -1,6 +1,7 @@
 import path from 'path';
 import fs from 'fs-extra';
 import { FlowEditorModel, ComponentModel } from '../model';
+import settingsEntryTemplate from './templates/SettingsAppEntryContent';
 
 const settingsWrapperPath =
   'yoshi-flow-editor-runtime/build/SettingsWrapper.js';
@@ -17,13 +18,10 @@ const settingsWrapper = (
           `${component.name}Settings.js`,
         );
 
-        const generateSettingsEntryContent = `
-      import React from 'react';
-      import ReactDOM from 'react-dom';
-      import SettingsWrapper from '${settingsWrapperPath}';
-      import Settings from '${component.settingsFileName}';
-
-      ReactDOM.render(React.createElement(SettingsWrapper, null, React.createElement(Settings)), document.getElementById('root'));`;
+        const generateSettingsEntryContent = settingsEntryTemplate({
+          settingsWrapperPath,
+          componentFileName: component.settingsFileName,
+        });
 
         fs.outputFileSync(
           generatedWidgetEntryPath,

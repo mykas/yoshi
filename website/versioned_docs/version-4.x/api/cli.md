@@ -136,7 +136,7 @@ This task will perform the following:
 1. Compile using `TypeScript` (`*.ts`) or `babel` (`*.js`) files into `dist/`.
 2. Copy assets to `dist` folder (ejs/html/images...).
 
-You can specify multiple entry points in your `package.json` file. This gives the ability build multiple bundles at once. More info about Webpack entries can be found [here](http://webpack.github.io/docs/configuration.html#entry).
+You can specify multiple entry points in your `package.json` file. This gives the ability build multiple bundles at once. More info about Webpack entries can be found [here](https://webpack.js.org/configuration/entry-context/#entry).
 
 ```json
 "yoshi": {

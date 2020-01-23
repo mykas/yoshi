@@ -655,6 +655,7 @@ export function createBaseWebpackConfig({
           // If more users use `svelte` we'll consider adding it to everyone by default.
           loader: 'svelte-loader',
           options: {
+            immutable: true,
             hydratable: true,
             // https://github.com/sveltejs/svelte-loader/issues/67
             onwarn: (warning: any, onwarn: any) => {

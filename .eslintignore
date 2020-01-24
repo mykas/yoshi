@@ -3,6 +3,7 @@ test/javascript/features/output/output-error-babel/src/client.js
 node_modules
 dist
 build
+tmp
 packages/eslint-config-yoshi/__tests__/rules
 test/projects/*/src/errors
 packages/create-yoshi-app/templates/business-manager-module/javascript/src/config.js

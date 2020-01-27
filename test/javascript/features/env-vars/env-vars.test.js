@@ -9,7 +9,7 @@ const scripts = Scripts.setupProjectFromTemplate({
 describe.each(['prod', 'dev'])('env-vars [%s]', mode => {
   it('supports prod NODE_ENV', async () => {
     await scripts[mode](async () => {
-      await page.goto('http://localhost:3000');
+      await page.goto(scripts.serverUrl);
 
       const result = await page.$eval(
         '#env-vars #node-env',
@@ -26,7 +26,7 @@ describe.each(['prod', 'dev'])('env-vars [%s]', mode => {
 
   it('supports __CI_APP_VERSION__', async () => {
     await scripts[mode](async () => {
-      await page.goto('http://localhost:3000');
+      await page.goto(scripts.serverUrl);
 
       const result = await page.$eval(
         '#env-vars #ci-app-version',
@@ -43,7 +43,7 @@ describe.each(['prod', 'dev'])('env-vars [%s]', mode => {
 
   it('supports browser env var on browser side', async () => {
     await scripts[mode](async () => {
-      await page.goto('http://localhost:3000');
+      await page.goto(scripts.serverUrl);
 
       const result = await page.$eval(
         '#env-vars #browser',
@@ -56,7 +56,7 @@ describe.each(['prod', 'dev'])('env-vars [%s]', mode => {
 
   it('supports browser env var on server side', async () => {
     await scripts[mode](async () => {
-      await page.goto('http://localhost:3000');
+      await page.goto(scripts.serverUrl);
 
       const { data } = await axios.get('http://localhost:3000/env-var-browser');
 

@@ -9,7 +9,7 @@ const scripts = Scripts.setupProjectFromTemplate({
 describe.each(['prod', 'dev'])('sass inclusion global [%s]', mode => {
   it('integration', async () => {
     await scripts[mode](async () => {
-      await page.goto(`http://localhost:3000`);
+      await page.goto(scripts.serverUrl);
       await matchCSS('app', page, [
         /\.global-sass-modules-inclusion\{background:#ccc;color:#000;*}/,
       ]);

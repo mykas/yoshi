@@ -9,7 +9,7 @@ const scripts = Scripts.setupProjectFromTemplate({
 describe.each(['prod', 'dev'])('moment [%s]', mode => {
   it('exclude locales imported from moment', async () => {
     await scripts[mode](async () => {
-      await page.goto(`http://localhost:3000`);
+      await page.goto(scripts.serverUrl);
       // should not include the `en` locale
       await matchJS('app', page, [/^((?!hello).)*$/]);
     });
@@ -17,7 +17,7 @@ describe.each(['prod', 'dev'])('moment [%s]', mode => {
 
   it('include locales imported outside of moment', async () => {
     await scripts[mode](async () => {
-      await page.goto(`http://localhost:3000`);
+      await page.goto(scripts.serverUrl);
       // should not include the `en` locale
       await matchJS('app', page, [/hallo/]);
     });

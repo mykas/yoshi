@@ -8,7 +8,7 @@ const scripts = Scripts.setupProjectFromTemplate({
 describe.each(['prod', 'dev'])('markdown inclusion [%s]', mode => {
   it('integration', async () => {
     await scripts[mode](async () => {
-      await page.goto(`http://localhost:3000`);
+      await page.goto(scripts.serverUrl);
       const innerHTML = await page.$eval(
         '#markdown-inclusion',
         elm => elm.innerHTML,

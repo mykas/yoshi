@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import Experiments from '@wix/wix-experiments';
 import { ExperimentsContext } from './ExperimentsProvider';
 
@@ -14,6 +14,7 @@ const useExperiments = (): Pick<Experiments, keyof Experiments> => {
     load: experiments.load.bind(experiments),
     pending: experiments.pending.bind(experiments),
     ready: experiments.ready.bind(experiments),
+    useNewApi: false,
   };
 };
 

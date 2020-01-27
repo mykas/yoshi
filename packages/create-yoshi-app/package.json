@@ -1,6 +1,6 @@
 {
   "name": "create-yoshi-app",
-  "version": "4.28.6",
+  "version": "4.28.9",
   "description": "create yoshi powered apps",
   "keywords": [
     "create",
@@ -19,7 +19,7 @@
     "fullstack": "npm run templates -- fullstack fullstack-typescript",
     "server": "npm run templates -- server server-typescript",
     "library": "npm run templates -- library library-typescript",
-    "bizmgr": "npm run templates -- business-manager-module business-manager-module-typescript",
+    "bm": "npm run templates -- business-manager-module business-manager-module-typescript",
     "flow-bm": "npm run templates -- flow-bm-typescript",
     "ooi": "npm run templates -- out-of-iframe out-of-iframe-typescript",
     "flow-editor": "npm run templates -- flow-editor flow-editor-typescript",

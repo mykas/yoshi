@@ -17,7 +17,7 @@ describe.each(['prod'])('optimize [%s]', mode => {
           }
         });
 
-        await page.goto(`http://localhost:3000`);
+        await page.goto(scripts.serverUrl);
 
         expect(logs).toEqual(['module-with-multiple-exports']);
       });

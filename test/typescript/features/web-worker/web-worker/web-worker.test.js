@@ -8,7 +8,7 @@ const scripts = Scripts.setupProjectFromTemplate({
 describe.each(['prod', 'dev'])('web-worker [%s]', mode => {
   it('integration', async () => {
     await scripts[mode](async () => {
-      await page.goto(`http://localhost:3000`);
+      await page.goto(scripts.serverUrl);
       await page.waitForFunction(
         `document.querySelector('h1').innerText === 'hello from a web worker'`,
       );

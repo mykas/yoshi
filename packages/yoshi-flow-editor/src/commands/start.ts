@@ -4,7 +4,7 @@ import fs from 'fs-extra';
 import chalk from 'chalk';
 import { TARGET_DIR, BUILD_DIR } from 'yoshi-config/paths';
 import DevEnvironment from 'yoshi-common/dev-environment';
-import { cliCommand } from '../bin/yoshi-flow-editor';
+import { cliCommand } from '../cli';
 import {
   createClientWebpackConfig,
   createServerWebpackConfig,

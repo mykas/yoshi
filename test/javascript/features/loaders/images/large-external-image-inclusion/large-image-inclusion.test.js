@@ -8,7 +8,7 @@ const scripts = Scripts.setupProjectFromTemplate({
 describe.each(['prod', 'dev'])('large image inclusion [%s]', mode => {
   it('integration', async () => {
     await scripts[mode](async () => {
-      await page.goto(`http://localhost:3000`);
+      await page.goto(scripts.serverUrl);
       const imageSource = await page.$eval(
         '#large-external-image-inclusion',
         elm => elm.src,

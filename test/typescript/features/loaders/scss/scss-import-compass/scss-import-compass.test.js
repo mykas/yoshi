@@ -9,7 +9,7 @@ const scripts = Scripts.setupProjectFromTemplate({
 describe.each(['prod', 'dev'])('scss import compass [%s]', mode => {
   it('integration', async () => {
     await scripts[mode](async () => {
-      await page.goto(`http://localhost:3000`);
+      await page.goto(scripts.serverUrl);
       const className = await page.$eval('#scss-import-compass', elm =>
         elm.getAttribute('class'),
       );

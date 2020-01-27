@@ -18,7 +18,7 @@ describe.each(['dev'])('hmr [%s]', mode => {
   describe('client side', () => {
     it('integration', async () => {
       await scripts[mode](async () => {
-        await page.goto(`http://localhost:3000`);
+        await page.goto(scripts.serverUrl);
         await page.$eval('#css-inclusion', elm => elm.getAttribute('class'));
 
         expect(await page.$eval('#css-inclusion', elm => elm.textContent)).toBe(
@@ -53,7 +53,7 @@ describe.each(['dev'])('hmr [%s]', mode => {
   describe('server side', () => {
     it('reloads server on changes and reloads the browser', async () => {
       await scripts[mode](async () => {
-        await page.goto(`http://localhost:3000`);
+        await page.goto(scripts.serverUrl);
 
         expect(await page.title()).toBe('Some title');
 
@@ -78,7 +78,7 @@ describe.each(['dev'])('hmr [%s]', mode => {
 
     it('shows error overlay on the browser', async () => {
       await scripts[mode](async () => {
-        await page.goto(`http://localhost:3000`);
+        await page.goto(scripts.serverUrl);
 
         expect(await page.title()).toBe('Some title');
 
@@ -98,7 +98,7 @@ describe.each(['dev'])('hmr [%s]', mode => {
 
     it('restarts server if it dies', async () => {
       await scripts[mode](async () => {
-        await page.goto(`http://localhost:3000`);
+        await page.goto(scripts.serverUrl);
 
         expect(await page.title()).toBe('Some title');
 

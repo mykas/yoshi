@@ -1,6 +1,6 @@
 import React from 'react';
 import { IWixStatic } from '@wix/native-components-infra/dist/es/src/types/wix-sdk';
-import { PublicDataContext, PublicDataType } from './PublicDataContext';
+import { PublicDataContext } from './PublicDataContext';
 
 // Later it can be passed into a hook as `usePublicData(scope)`
 const scope = 'COMPONENT';
@@ -112,7 +112,7 @@ export class PublicDataProviderEditor extends React.Component<
           readyPromise: this.state.readyPromise,
           get: this.handleGetParam,
           set: this.handleSetParam,
-          type: PublicDataType.EditorPublicData,
+          type: 'editor-public-data',
         }}
       >
         {this.props.children}

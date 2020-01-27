@@ -8,7 +8,7 @@ const scripts = Scripts.setupProjectFromTemplate({
 describe.each(['prod', 'dev'])('entries [%s]', mode => {
   it('integration', async () => {
     await scripts[mode](async () => {
-      await page.goto(`http://localhost:3000/other`);
+      await page.goto(`${scripts.serverUrl}/other`);
       const innerHTML = await page.$eval('#other', elm => elm.innerHTML);
 
       expect(innerHTML).toEqual('Other App');

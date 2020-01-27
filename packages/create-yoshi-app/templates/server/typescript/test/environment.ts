@@ -3,7 +3,7 @@ import testkit from '@wix/wix-bootstrap-testkit';
 // https://github.com/wix-platform/wix-node-platform/tree/master/config/wix-config-emitter
 import configEmitter from '@wix/wix-config-emitter';
 
-import TestEnv from '@wix/wix-test-env';
+import * as TestEnv from '@wix/wix-test-env';
 
 export const env = TestEnv.builder()
   .withConfigurer(emitConfigs)

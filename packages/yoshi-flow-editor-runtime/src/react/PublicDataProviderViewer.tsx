@@ -29,7 +29,7 @@ export class PublicDataProviderViewer extends React.Component<
       },
       ready: true,
       readyPromise: Promise.resolve(true),
-      type: PublicDataType.ViewerPublicData,
+      type: 'viewer-public-data' as PublicDataType,
     },
   };
 

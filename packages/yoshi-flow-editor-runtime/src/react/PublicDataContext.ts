@@ -10,14 +10,11 @@ export interface IPublicDataContext {
   type?: PublicDataType;
 }
 
+export type PublicDataType = 'viewer-public-data' | 'editor-public-data';
+
 export interface IPublicData {
   set: (key: string, value: any) => void;
   get: (key: string) => any;
-}
-
-export enum PublicDataType {
-  ViewerPublicData,
-  EditorPublicData,
 }
 
 export const PublicDataContext = createContext<IPublicDataContext>({

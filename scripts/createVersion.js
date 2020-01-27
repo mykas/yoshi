@@ -63,6 +63,16 @@ Promise.resolve()
       console.log();
     }
 
+    console.log();
+    console.log('installing website...');
+    console.log();
+
+    execa.sync('yarn install', {
+      cwd: websiteDirectory,
+      stdio: 'inherit',
+      shell: true,
+    });
+
     const createVersionedDocsCommand = `npm run version "${majorVersion}"`;
 
     execa.sync(createVersionedDocsCommand, {

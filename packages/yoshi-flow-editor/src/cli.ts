@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 process.on('unhandledRejection', error => {
   throw error;
 });
@@ -10,7 +8,7 @@ import { Config } from 'yoshi-config/build/config';
 import normalizeDebuggingArgs from 'yoshi-common/normalize-debugging-args';
 import verifyDependencies from 'yoshi-common/verify-dependencies';
 import verifyNodeVersion from 'yoshi-common/verify-node-version';
-import { generateFlowEditorModel, FlowEditorModel } from '../model';
+import { generateFlowEditorModel, FlowEditorModel } from './model';
 
 const defaultCommand = 'start';
 
@@ -23,8 +21,8 @@ export type cliCommand = (
 const commands: {
   [command: string]: () => Promise<{ default: cliCommand }>;
 } = {
-  build: () => import('../commands/build'),
-  start: () => import('../commands/start'),
+  build: () => import('./commands/build'),
+  start: () => import('./commands/start'),
   test: () => import('yoshi-flow-legacy/bin/yoshi-legacy'),
   lint: () => import('yoshi-flow-legacy/bin/yoshi-legacy'),
   info: () => import('yoshi-flow-legacy/bin/yoshi-legacy'),

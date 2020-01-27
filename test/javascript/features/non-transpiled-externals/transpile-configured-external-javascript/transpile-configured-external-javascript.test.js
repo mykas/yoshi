@@ -10,7 +10,7 @@ describe.each(['prod', 'dev'])(
   mode => {
     it('integration', async () => {
       await scripts[mode](async () => {
-        await page.goto(`http://localhost:3000`);
+        await page.goto(scripts.serverUrl);
         const result = await page.$eval(
           '#transpile-configured-external-javascript',
           elm => elm.textContent,

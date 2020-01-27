@@ -302,8 +302,8 @@ export function createBaseWebpackConfig({
   const notExternalModules: Array<RegExp> = [
     reStyle,
     reAssets,
-    /bootstrap-hot-loader/,
-    /yoshi-server/,
+    /node_modules\/bootstrap-hot-loader/,
+    /node_modules\/yoshi-server/,
     ...nodeExternalsWhitelist,
   ];
 
@@ -655,6 +655,7 @@ export function createBaseWebpackConfig({
           // If more users use `svelte` we'll consider adding it to everyone by default.
           loader: 'svelte-loader',
           options: {
+            immutable: true,
             hydratable: true,
             // https://github.com/sveltejs/svelte-loader/issues/67
             onwarn: (warning: any, onwarn: any) => {
@@ -672,7 +673,12 @@ export function createBaseWebpackConfig({
                 extension: '.svx',
               }),
               ...(target === 'node'
-                ? [SveltePreprocessSSR({ packageName: name })]
+                ? [
+                    SveltePreprocessSSR({
+                      packageName: name,
+                      cwd,
+                    }),
+                  ]
                 : []),
             ],
             dev: isDev,

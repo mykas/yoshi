@@ -1,5 +1,73 @@
 # Changelog
 
+## 4.28.9 (2020-01-26)
+
+#### :bug: Bug Fix
+
+- `yoshi-common`
+  - [#1878](https://github.com/wix/yoshi/pull/1878) Fix a bug in `notExternalModules` regex patterns ([@yanivefraim](https://github.com/yanivefraim))
+
+#### :nail_care: Polish
+
+- `yoshi-common`
+  - [#1883](https://github.com/wix/yoshi/pull/1883) Fix `svelte-server-side-preprocess` to report Svelte filename ([@nirnatan](https://github.com/nirnatan))
+  * [#1880](https://github.com/wix/yoshi/pull/1880) Add immutable `true` to Svelte options ([@nirnatan](https://github.com/nirnatan))
+
+#### :memo: Documentation
+
+- [#1852](https://github.com/wix/yoshi/pull/1852) Fix broken link CLI documentation ([@EgoziE](https://github.com/EgoziE))
+
+#### :house: Internal
+
+- Other
+  - [#1887](https://github.com/wix/yoshi/pull/1887) Improve release process - install website during publish ([@yanivefraim](https://github.com/yanivefraim))
+  - [#1873](https://github.com/wix/yoshi/pull/1873) Add tests for `jest-preset-overrides` ([@yanivefraim](https://github.com/yanivefraim))
+  - [#1882](https://github.com/wix/yoshi/pull/1882) Updates integration tests infra - get server url from `scripts` ([@yanivefraim](https://github.com/yanivefraim))
+  - [#1875](https://github.com/wix/yoshi/pull/1875) update `CONTRIBUTING.md` document with the new testing infra ([@yanivefraim](https://github.com/yanivefraim))
+  - [#1881](https://github.com/wix/yoshi/pull/1881) Update integration tests timeout ([@yanivefraim](https://github.com/yanivefraim))
+  - [#1863](https://github.com/wix/yoshi/pull/1863) Clean old tests status checks ([@yanivefraim](https://github.com/yanivefraim))
+- `create-yoshi-app`
+  - [#1877](https://github.com/wix/yoshi/pull/1877) Change npm scripts names ([@ranyitz](https://github.com/ranyitz))
+
+## 4.28.8 (2020-01-23)
+
+#### :bug: Bug Fix
+
+- `yoshi-common`
+  - [#1878](https://github.com/wix/yoshi/pull/1878) Fix a bug in notExternalModules regex patterns ([@yanivefraim](https://github.com/yanivefraim))
+
+#### :nail_care: Polish
+
+- `yoshi-common`
+  - [#1880](https://github.com/wix/yoshi/pull/1880) Add `immutable` true to Svelte's options ([@nirnatan](https://github.com/nirnatan))
+
+#### :memo: Documentation
+
+- [#1852](https://github.com/wix/yoshi/pull/1852) Fix broken link ([@EgoziE](https://github.com/EgoziE))
+
+#### :house: Internal
+
+- `create-yoshi-app`
+  - [#1877](https://github.com/wix/yoshi/pull/1877) Change npm scripts names ([@ranyitz](https://github.com/ranyitz))
+- Other
+  - [#1863](https://github.com/wix/yoshi/pull/1863) Clean old tests status checks ([@yanivefraim](https://github.com/yanivefraim))
+
+## 4.28.7 (2020-01-22)
+
+#### :bug: Bug Fix
+
+- `create-yoshi-app`
+  - [#1872](https://github.com/wix/yoshi/pull/1872) Fix server template's `environment.ts` ([@hugebdu](https://github.com/hugebdu))
+
+#### :house: Internal
+
+- `eslint-config-yoshi-base`
+  - [#1871](https://github.com/wix/yoshi/pull/1871) Add basic linting guidelines ([@ranyitz](https://github.com/ranyitz))
+- `yoshi-flow-editor-runtime`
+  - [#1868](https://github.com/wix/yoshi/pull/1868) Add a rule to disallow enums ([@ranyitz](https://github.com/ranyitz))
+- `yoshi-flow-editor`
+  - [#1869](https://github.com/wix/yoshi/pull/1869) [editor-flow] disconnect `CLI` and `bin` files ([@ranyitz](https://github.com/ranyitz))
+
 ## 4.28.6 (2020-01-20)
 
 #### :bug: Bug Fix

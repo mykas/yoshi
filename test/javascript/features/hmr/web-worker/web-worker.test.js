@@ -15,7 +15,7 @@ describe.each(['dev'])('hmr, web-worker [%s]', mode => {
       const originalLog = 'hello from a web worker';
       const overriddenLog = 'hello from the other side';
 
-      await page.goto(`http://localhost:3000`);
+      await page.goto(scripts.serverUrl);
 
       await page.waitForFunction(
         `document.querySelector('h1').innerText === 'hello from a web worker'`,
@@ -56,7 +56,7 @@ describe.each(['dev'])('hmr, web-worker [%s]', mode => {
       const originalContent = fs.readFileSync(workerFilePath, 'utf-8');
       fs.writeFileSync(workerFilePath, '>>>error');
 
-      await page.goto(`http://localhost:3000`);
+      await page.goto(scripts.serverUrl);
 
       await page.waitForSelector('#webpack-dev-server-client-overlay');
 

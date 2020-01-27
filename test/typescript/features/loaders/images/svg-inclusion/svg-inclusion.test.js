@@ -8,7 +8,7 @@ const scripts = Scripts.setupProjectFromTemplate({
 describe.each(['prod', 'dev'])('svg inclusion [%s]', mode => {
   it('integration', async () => {
     await scripts[mode](async () => {
-      await page.goto(`http://localhost:3000`);
+      await page.goto(scripts.serverUrl);
       const imageSource = await page.$eval('#svg-inclusion', elm => elm.src);
 
       expect(imageSource).toMatch(/data:image\/svg.+/);

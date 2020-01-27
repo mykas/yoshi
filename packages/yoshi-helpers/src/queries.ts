@@ -2,8 +2,8 @@ import path from 'path';
 import fs from 'fs';
 import globby from 'globby';
 import config from 'yoshi-config';
-import * as globs from 'yoshi-config/globs';
-import { POM_FILE } from 'yoshi-config/paths';
+import * as globs from 'yoshi-config/build/globs';
+import { POM_FILE } from 'yoshi-config/build/paths';
 import { defaultEntry } from './constants';
 
 export const exists = (

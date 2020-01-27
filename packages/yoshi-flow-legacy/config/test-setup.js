@@ -5,8 +5,8 @@ Object.assign(process.env, {
 
 const path = require('path');
 const { tryRequire } = require('yoshi-helpers/utils');
-const { isTypescriptProject } = require('yoshi-helpers/queries');
 const { setupRequireHooks } = require('yoshi-common/build/require-hooks');
+const { isTypescriptProject } = require('yoshi-helpers/build/queries');
 
 const ext = isTypescriptProject() && !process.env.IN_WALLABY ? 'ts' : 'js';
 const mochaSetupPath = path.join(process.cwd(), 'test', `mocha-setup.${ext}`);

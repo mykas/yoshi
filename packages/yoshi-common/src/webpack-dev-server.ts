@@ -4,7 +4,7 @@ import path from 'path';
 import cors from 'cors';
 import OriginalWebpackDevServer from 'webpack-dev-server';
 import webpack from 'webpack';
-import { STATICS_DIR } from 'yoshi-config/paths';
+import { STATICS_DIR } from 'yoshi-config/build/paths';
 import express from 'express';
 import { createDevServerSocket as createDevServerTunnelSocket } from './utils/suricate';
 

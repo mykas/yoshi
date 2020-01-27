@@ -17,7 +17,7 @@ const minimatch = require('minimatch');
 const minimist = require('minimist');
 const { createRunner } = require('haste-core');
 const LoggerPlugin = require('../plugins/haste-plugin-yoshi-logger');
-const globs = require('yoshi-config/globs');
+const globs = require('yoshi-config/build/globs');
 const chalk = require('chalk');
 const globby = require('globby');
 const projectConfig = require('yoshi-config');
@@ -28,7 +28,7 @@ const {
   hasE2ETests,
   hasBundleInStaticsDir,
   inPRTeamCity,
-} = require('yoshi-helpers/queries');
+} = require('yoshi-helpers/build/queries');
 const { getMochaReporter, watch } = require('yoshi-helpers/utils');
 const protractor = require('../../src/tasks/protractor');
 const { printAndExitOnErrors } = require('../error-handler');

@@ -7,9 +7,11 @@ const detect = require('detect-port');
 const debounce = require('lodash/debounce');
 const waitPort = require('wait-port');
 const boxen = require('boxen');
-const { getDevelopmentEnvVars } = require('yoshi-helpers/bootstrap-utils');
+const {
+  getDevelopmentEnvVars,
+} = require('yoshi-helpers/build/bootstrap-utils');
 const { PORT } = require('yoshi-common/build/utils/constants');
-const { SERVER_LOG_FILE } = require('yoshi-config/paths');
+const { SERVER_LOG_FILE } = require('yoshi-config/build/paths');
 
 let server;
 let port;

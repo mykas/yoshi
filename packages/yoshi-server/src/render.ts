@@ -1,6 +1,6 @@
 import path from 'path';
 import ejs from 'ejs';
-import { TEMPLATES_BUILD_DIR } from 'yoshi-config/paths';
+import { TEMPLATES_BUILD_DIR } from 'yoshi-config/build/paths';
 
 export default async (templateName: string, data: any = {}) => {
   // When running tests, we use the development environment in watch mode

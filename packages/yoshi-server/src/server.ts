@@ -6,7 +6,7 @@ import globby from 'globby';
 import SockJS from 'sockjs-client';
 import { send } from 'micro';
 import importFresh from 'import-fresh';
-import { ROUTES_BUILD_DIR } from 'yoshi-config/paths';
+import { ROUTES_BUILD_DIR } from 'yoshi-config/build/paths';
 import { RouteFunction } from './types';
 import { relativeFilePath, pathMatch } from './utils';
 

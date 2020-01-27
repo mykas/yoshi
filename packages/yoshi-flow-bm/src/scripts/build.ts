@@ -2,13 +2,13 @@ import path from 'path';
 import arg from 'arg';
 import fs from 'fs-extra';
 import bfj from 'bfj';
-import { BUILD_DIR, TARGET_DIR, STATS_FILE } from 'yoshi-config/paths';
 import { runWebpack } from 'yoshi-common/build/webpack-utils';
 import {
   printBuildResult,
   printBundleSizeSuggestion,
 } from 'yoshi-common/build/print-build-results';
-import { inTeamCity } from 'yoshi-helpers/queries';
+import { BUILD_DIR, TARGET_DIR, STATS_FILE } from 'yoshi-config/build/paths';
+import { inTeamCity } from 'yoshi-helpers/build/queries';
 import {
   createClientWebpackConfig,
   createServerWebpackConfig,

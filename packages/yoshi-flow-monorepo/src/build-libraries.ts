@@ -3,7 +3,7 @@ import fs from 'fs-extra';
 import execa from 'execa';
 import chalk from 'chalk';
 import globby from 'globby';
-import { BUILD_DIR } from 'yoshi-config/paths';
+import { BUILD_DIR } from 'yoshi-config/build/paths';
 import { PackageGraphNode } from './load-package-graph';
 
 export default async function buildLibs(libs: Array<PackageGraphNode>) {

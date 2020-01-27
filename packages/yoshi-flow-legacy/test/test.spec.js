@@ -10,7 +10,7 @@ const {
   takePort,
   takePortFromAnotherProcess,
 } = require('../../../test-helpers/http-helpers');
-const { staticsDomain } = require('yoshi-helpers/constants');
+const { staticsDomain } = require('yoshi-helpers/build/constants');
 
 describe('Aggregator: Test', () => {
   describe('CDN Port', () => {

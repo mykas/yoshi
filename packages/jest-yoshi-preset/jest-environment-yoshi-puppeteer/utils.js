@@ -1,5 +1,5 @@
 const globby = require('globby');
-const globs = require('yoshi-config/globs');
+const globs = require('yoshi-config/build/globs');
 const chalk = require('chalk');
 
 const { MATCH_ENV } = process.env;

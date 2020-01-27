@@ -5,9 +5,9 @@ process.env.NODE_ENV = 'production';
 const { createRunner } = require('haste-core');
 const parseArgs = require('minimist');
 const LoggerPlugin = require('../plugins/haste-plugin-yoshi-logger');
-const globs = require('yoshi-config/globs');
+const globs = require('yoshi-config/build/globs');
 const path = require('path');
-const { STATS_FILE } = require('yoshi-config/paths');
+const { STATS_FILE } = require('yoshi-config/build/paths');
 const {
   petriSpecsConfig,
   clientProjectName,
@@ -21,7 +21,7 @@ const {
   shouldRunWebpack,
   shouldRunLess,
   shouldRunSass,
-} = require('yoshi-helpers/queries');
+} = require('yoshi-helpers/build/queries');
 const createBabelConfig = require('yoshi-common/build/create-babel-config')
   .default;
 const { printAndExitOnErrors } = require('../error-handler');

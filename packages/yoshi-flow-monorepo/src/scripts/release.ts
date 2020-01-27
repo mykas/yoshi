@@ -5,7 +5,7 @@ import wnpm from 'wnpm-ci';
 import {
   inTeamCity as checkInTeamCity,
   inPRTeamCity as checkInPRTeamCity,
-} from 'yoshi-helpers/queries';
+} from 'yoshi-helpers/build/queries';
 import { cliCommand } from '../bin/yoshi-monorepo';
 
 const inTeamCity = checkInTeamCity();

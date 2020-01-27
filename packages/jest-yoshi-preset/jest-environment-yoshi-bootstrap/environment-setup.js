@@ -1,4 +1,4 @@
-const loadJestYoshiConfig = require('yoshi-config/jest');
+const loadJestYoshiConfig = require('yoshi-config/build/jest');
 
 const jestYoshiConfig = loadJestYoshiConfig();
 

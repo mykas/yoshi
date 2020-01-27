@@ -1,7 +1,7 @@
 import path from 'path';
 import fs from 'fs-extra';
 import xmldoc from 'xmldoc';
-import { POM_FILE } from 'yoshi-config/paths';
+import { POM_FILE } from 'yoshi-config/build/paths';
 
 const renderTemplate = (
   filename: string,

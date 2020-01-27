@@ -6,7 +6,7 @@ const {
   appPersistentDir,
 } = require('./constants');
 const projectConfig = require('yoshi-config');
-const { getEnvVars } = require('yoshi-helpers/bootstrap-utils');
+const { getEnvVars } = require('yoshi-helpers/build/bootstrap-utils');
 
 module.exports = class BootstrapEnvironment extends NodeEnvironment {
   async setup() {

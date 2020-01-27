@@ -5,7 +5,7 @@ import { send, json as parseBodyAsJson } from 'micro';
 import { PathReporter } from 'io-ts/lib/PathReporter';
 import { isLeft } from 'fp-ts/lib/Either';
 import serializeError from 'serialize-error';
-import { BUILD_DIR } from 'yoshi-config/paths';
+import { BUILD_DIR } from 'yoshi-config/build/paths';
 import { requestPayloadCodec, DSL } from '../types';
 import { relativeFilePath } from '../utils';
 import { route } from '..';

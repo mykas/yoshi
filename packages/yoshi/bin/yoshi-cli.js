@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const config = require('yoshi-config');
-// const { inTeamCity } = require('yoshi-helpers/queries');
+// const { inTeamCity } = require('yoshi-helpers/build/queries');
 // const { collectData } = require('yoshi-common/build/telemetry');
 
 // const done = inTeamCity() ? collectData() : Promise.resolve();

@@ -1,5 +1,5 @@
 const project = require('yoshi-config');
-const transform = require('yoshi-server-tools/jest-transform');
+const transform = require('yoshi-server-tools/build/jest-transform');
 
 function withServerTransformer(transformer) {
   return {

@@ -5,9 +5,9 @@ import webpack from 'webpack';
 import globby from 'globby';
 import formatWebpackMessages from 'react-dev-utils/formatWebpackMessages';
 import Watchpack from 'watchpack';
-import { shouldDeployToCDN, inTeamCity } from 'yoshi-helpers/queries';
+import { shouldDeployToCDN, inTeamCity } from 'yoshi-helpers/build/queries';
 import { getProjectCDNBasePath } from 'yoshi-helpers/utils';
-import { SRC_DIR, ROUTES_DIR } from 'yoshi-config/paths';
+import { SRC_DIR, ROUTES_DIR } from 'yoshi-config/build/paths';
 import { isTruthy } from './utils/helpers';
 import { getDevServerUrl } from './utils/suricate';
 

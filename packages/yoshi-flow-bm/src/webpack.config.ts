@@ -9,7 +9,7 @@ import {
   isTypescriptProject,
   inTeamCity,
   isProduction,
-} from 'yoshi-helpers/queries';
+} from 'yoshi-helpers/build/queries';
 import bmExternalModules from './bmExternalModules';
 
 const useTypeScript = isTypescriptProject();

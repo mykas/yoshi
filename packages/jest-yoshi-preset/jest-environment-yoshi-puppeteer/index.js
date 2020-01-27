@@ -2,7 +2,7 @@ const fs = require('fs-extra');
 const puppeteer = require('puppeteer');
 const { WS_ENDPOINT_PATH, IS_DEBUG_MODE } = require('./constants');
 const { setupRequireHooks } = require('yoshi-common/build/require-hooks');
-const loadJestYoshiConfig = require('yoshi-config/jest');
+const loadJestYoshiConfig = require('yoshi-config/build/jest');
 const { getBrowserDebugFunction } = require('./utils');
 const { servers } = require('yoshi-config');
 

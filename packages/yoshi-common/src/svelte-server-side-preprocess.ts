@@ -1,5 +1,5 @@
 import path from 'path';
-import { SRC_DIR } from 'yoshi-config/paths';
+import { SRC_DIR } from 'yoshi-config/build/paths';
 
 export default function({
   packageName,

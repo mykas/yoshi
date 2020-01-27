@@ -11,12 +11,12 @@ import {
   ASSETS_DIR,
   TEMPLATES_DIR,
   TEMPLATES_BUILD_DIR,
-} from 'yoshi-config/paths';
+} from 'yoshi-config/build/paths';
 import resolve from 'resolve';
 import {
   isProduction as checkIsProduction,
   inTeamCity as checkInTeamCity,
-} from 'yoshi-helpers/queries';
+} from 'yoshi-helpers/build/queries';
 // @ts-ignore - missing types
 import ModuleNotFoundPlugin from 'react-dev-utils/ModuleNotFoundPlugin';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';

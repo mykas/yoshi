@@ -1,6 +1,6 @@
 const globby = require('globby');
 const projectConfig = require('yoshi-config');
-const globs = require('yoshi-config/globs');
+const globs = require('yoshi-config/build/globs');
 
 module.exports = {
   spec_dir: '',

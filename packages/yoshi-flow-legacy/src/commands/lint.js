@@ -6,13 +6,13 @@ const chalk = require('chalk');
 const tslint = require('../tasks/tslint');
 const eslint = require('../tasks/eslint');
 const LoggerPlugin = require('../plugins/haste-plugin-yoshi-logger');
-const globs = require('yoshi-config/globs');
+const globs = require('yoshi-config/build/globs');
 
 const {
   isTypescriptProject,
   watchMode,
   isUsingTSLint,
-} = require('yoshi-helpers/queries');
+} = require('yoshi-helpers/build/queries');
 
 const { hooks } = require('yoshi-config');
 

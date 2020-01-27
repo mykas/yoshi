@@ -1,7 +1,7 @@
 import path from 'path';
 import fs from 'fs-extra';
 import globby from 'globby';
-import { STATICS_DIR, SRC_DIR } from 'yoshi-config/paths';
+import { STATICS_DIR, SRC_DIR } from 'yoshi-config/build/paths';
 
 export async function copyTemplates(cwd = process.cwd()) {
   const files = await globby('**/*.{ejs,vm}', { cwd: path.join(cwd, SRC_DIR) });

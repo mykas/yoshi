@@ -1,7 +1,7 @@
 import path from 'path';
 // @ts-ignore - missing types
 import petriSpecs from 'petri-specs';
-import { STATICS_DIR } from 'yoshi-config/paths';
+import { STATICS_DIR } from 'yoshi-config/build/paths';
 
 export = async function({
   config,

@@ -34,14 +34,14 @@ const {
   clientProjectName,
   startUrl,
 } = require('yoshi-config');
-const globs = require('yoshi-config/globs');
+const globs = require('yoshi-config/build/globs');
 const {
   isTypescriptProject,
   shouldRunLess,
   shouldRunSass,
   isProduction,
-} = require('yoshi-helpers/queries');
-const { defaultEntry } = require('yoshi-helpers/constants');
+} = require('yoshi-helpers/build/queries');
+const { defaultEntry } = require('yoshi-helpers/build/constants');
 const {
   shouldTransformHMRRuntime,
   suffix,

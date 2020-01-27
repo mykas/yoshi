@@ -7,7 +7,7 @@ import chalk from 'chalk';
 import psTree from 'ps-tree';
 import detect from 'detect-port';
 import config from 'yoshi-config';
-import { POM_FILE } from 'yoshi-config/paths';
+import { POM_FILE } from 'yoshi-config/build/paths';
 import xmldoc from 'xmldoc';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Stats } from 'webpack';

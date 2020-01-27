@@ -7,7 +7,7 @@ import {
   isTypescriptProject,
   inTeamCity,
   isProduction,
-} from 'yoshi-helpers/queries';
+} from 'yoshi-helpers/build/queries';
 
 const useTypeScript = isTypescriptProject();
 

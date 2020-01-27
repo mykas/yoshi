@@ -5,7 +5,7 @@ const {
   createClientWebpackConfig,
   getStyleLoaders,
 } = require('./webpack.config');
-const globs = require('yoshi-config/globs');
+const globs = require('yoshi-config/build/globs');
 const project = require('yoshi-config');
 
 const specsGlob = project.specs.browser || globs.specs;

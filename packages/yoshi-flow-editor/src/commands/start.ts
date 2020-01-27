@@ -2,8 +2,8 @@ import path from 'path';
 import arg from 'arg';
 import fs from 'fs-extra';
 import chalk from 'chalk';
-import { TARGET_DIR, BUILD_DIR } from 'yoshi-config/paths';
 import DevEnvironment from 'yoshi-common/build/dev-environment';
+import { TARGET_DIR, BUILD_DIR } from 'yoshi-config/build/paths';
 import { cliCommand } from '../cli';
 import {
   createClientWebpackConfig,

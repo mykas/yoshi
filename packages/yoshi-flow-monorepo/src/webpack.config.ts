@@ -8,15 +8,15 @@ import {
 // @ts-ignore
 import { StatsWriterPlugin } from 'webpack-stats-plugin';
 import { createBaseWebpackConfig } from 'yoshi-common/build/webpack.config';
-import { defaultEntry } from 'yoshi-helpers/constants';
+import { defaultEntry } from 'yoshi-helpers/build/constants';
 import { Config } from 'yoshi-config/build/config';
 import {
   isTypescriptProject,
   isSingleEntry,
   inTeamCity,
   isProduction,
-} from 'yoshi-helpers/queries';
-import { STATICS_DIR } from 'yoshi-config/paths';
+} from 'yoshi-helpers/build/queries';
+import { STATICS_DIR } from 'yoshi-config/build/paths';
 import ManifestPlugin from 'yoshi-common/build/manifest-webpack-plugin';
 import { isObject } from 'lodash';
 import { PackageGraphNode } from './load-package-graph';

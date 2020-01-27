@@ -1,7 +1,7 @@
 import Insight from 'insight';
 import config from 'yoshi-config';
 import semver from 'semver';
-import { isTypescriptProject as checkIsTypescriptProject } from 'yoshi-helpers/queries';
+import { isTypescriptProject as checkIsTypescriptProject } from 'yoshi-helpers/build/queries';
 
 const insight = new Insight({
   trackingCode: 'UA-120893726-1',

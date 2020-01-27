@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { join } from 'path';
-import { NODE_PLATFORM_DEFAULT_CONFIGS_DIR } from 'yoshi-config/paths';
+import { NODE_PLATFORM_DEFAULT_CONFIGS_DIR } from 'yoshi-config/build/paths';
 
 export const getEnvVars = ({
   port,

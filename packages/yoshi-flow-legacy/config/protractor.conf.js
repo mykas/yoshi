@@ -7,14 +7,14 @@ const {
   inTeamCity,
   exists,
   shouldDeployToCDN,
-} = require('yoshi-helpers/queries');
+} = require('yoshi-helpers/build/queries');
 const {
   getMochaReporter,
   getProjectCDNBasePath,
 } = require('yoshi-helpers/utils');
 const { setupRequireHooks } = require('yoshi-common/build/require-hooks');
-const startRewriteForwardProxy = require('yoshi-helpers/rewrite-forward-proxy');
-const globs = require('yoshi-config/globs');
+const startRewriteForwardProxy = require('yoshi-helpers/build/rewrite-forward-proxy');
+const globs = require('yoshi-config/build/globs');
 const config = require('yoshi-config');
 
 setupRequireHooks();

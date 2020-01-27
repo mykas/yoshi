@@ -22,11 +22,8 @@ export default class StorybookProcess extends EventEmitter {
   }
 
   start = async () => {
-    let storyBookYoshiDepsFolder;
     try {
-      storyBookYoshiDepsFolder = path.dirname(
-        require.resolve('yoshi-storybook-dependencies/package.json'),
-      );
+      require.resolve('yoshi-storybook-dependencies/package.json');
     } catch (e) {
       throw new Error(
         'Please install yoshi-storybook-dependencies in order to run storybook',
@@ -36,7 +33,7 @@ export default class StorybookProcess extends EventEmitter {
     this.emit('compiling');
 
     // eslint-disable-next-line import/no-extraneous-dependencies
-    const storybook = require(`${storyBookYoshiDepsFolder}/node_modules/@storybook/react/standalone`);
+    const storybook = require(`@storybook/react/standalone`);
 
     const webpackConfig = createWebpackConfig({
       projectRoot: path.join(process.cwd(), 'src'),

@@ -20,25 +20,6 @@ export function logIfAny(log: any) {
   }
 }
 
-export const createBabelConfig = (presetOptions = {}) => {
-  const pathsToResolve = [__filename];
-  try {
-    pathsToResolve.push(require.resolve('yoshi'));
-  } catch (e) {}
-  return {
-    presets: [
-      [
-        require.resolve('babel-preset-yoshi', {
-          paths: pathsToResolve,
-        }),
-        presetOptions,
-      ],
-    ],
-    babelrc: false,
-    configFile: false,
-  };
-};
-
 export const suffix = (ending: string) => (str: string) => {
   const hasSuffix = str.lastIndexOf(ending) === str.length - ending.length;
   return hasSuffix ? str : str + ending;

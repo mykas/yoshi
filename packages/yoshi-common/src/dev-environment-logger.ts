@@ -79,10 +79,9 @@ const logProcessState = (
 };
 
 const hasErrorsOrWarnings = (state: State): boolean => {
-  return Object.keys(state).some(stateName => {
-    const processState = state[stateName as ProcessType];
-    return ['errors', 'warnings'].includes(processState?.status as string);
-  });
+  return Object.values(state).some(processState =>
+    ['errors', 'warnings'].includes(processState?.status as string),
+  );
 };
 
 const logStateErrorsOrWarnings = (state: State) => {

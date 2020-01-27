@@ -406,12 +406,12 @@ export default class DevEnvironment {
     let storybookProcess;
 
     if (storybook) {
-      const pathToStorybook = path.join(
+      const pathToStorybookWorker = path.join(
         __dirname,
         'storybook',
         'storybook-worker',
       );
-      storybookProcess = execa.node(pathToStorybook, [], {});
+      storybookProcess = execa.node(pathToStorybookWorker);
     }
 
     const devEnvironment = new DevEnvironment({

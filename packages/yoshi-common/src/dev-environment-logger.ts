@@ -5,7 +5,7 @@ import { getUrl, getDevServerUrl } from './utils/suricate';
 
 const logSuricateUrls = (type: ProcessType, appName: string) => {
   switch (type) {
-    case 'Server':
+    case 'AppServer':
       console.log(
         `  ${chalk.bold('Public:')} ${chalk.magenta(getUrl(appName))}`,
       );
@@ -19,7 +19,7 @@ const logSuricateUrls = (type: ProcessType, appName: string) => {
 };
 
 const logMessageByProcessType: { [type in ProcessType]: string } = {
-  Server: `Your server is starting and should be accessible from your browser.`,
+  AppServer: `Your server is starting and should be accessible from your browser.`,
   Storybook:
     'Storybook is starting and should be accessible from your browser.',
   DevServer: `Your bundles and other static assets are served from your ${chalk.bold(
@@ -85,10 +85,10 @@ const hasErrorsOrWarnings = (state: State): boolean => {
 };
 
 const logStateErrorsOrWarnings = (state: State) => {
-  const { Server, Storybook } = state;
-  if (Server && Server.status === 'errors') {
+  const { DevServer, Storybook } = state;
+  if (DevServer && DevServer.status === 'errors') {
     console.log(chalk.red('Failed to compile.\n'));
-    console.log(Server.errors?.join('\n\n'));
+    console.log(DevServer.errors?.join('\n\n'));
     return;
   }
 
@@ -98,9 +98,9 @@ const logStateErrorsOrWarnings = (state: State) => {
     return;
   }
 
-  if (Server && Server.status === 'warnings') {
+  if (DevServer && DevServer.status === 'warnings') {
     console.log(chalk.red('Compiled with warnings.\n'));
-    console.log(Server.warnings?.join('\n\n'));
+    console.log(DevServer.warnings?.join('\n\n'));
     return;
   }
 

@@ -37,7 +37,7 @@ export type ProcessState =
   | ({ status: 'errors' } & Partial<WebpackStatus>)
   | ({ status: 'warnings' } & Partial<WebpackStatus>);
 
-export type ProcessType = 'DevServer' | 'Server' | 'Storybook';
+export type ProcessType = 'DevServer' | 'AppServer' | 'Storybook';
 
 export type State = {
   [type in ProcessType]?: ProcessState;
@@ -98,14 +98,14 @@ export default class DevEnvironment {
         );
 
         this.store.setState({
-          Server: {
+          AppServer: {
             status: 'success',
             urls: serverUrls,
-            ...messages,
           },
           DevServer: {
             status: 'success',
             urls: devServerUrls,
+            ...messages,
           },
         });
       } else if (messages.errors.length) {
@@ -114,22 +114,22 @@ export default class DevEnvironment {
         }
 
         this.store.setState({
-          Server: {
+          AppServer: {
             status: 'errors',
-            ...messages,
           },
           DevServer: {
             status: 'errors',
+            ...messages,
           },
         });
       } else if (messages.warnings.length) {
         this.store.setState({
-          Server: {
+          AppServer: {
             status: 'warnings',
-            ...messages,
           },
           DevServer: {
             status: 'warnings',
+            ...messages,
           },
         });
       }

@@ -15,7 +15,7 @@ const { WS_ENDPOINT_PATH, IS_DEBUG_MODE } = require('./constants');
 const { shouldRunE2Es } = require('./utils');
 const { shouldDeployToCDN } = require('yoshi-helpers/queries');
 const { getProcessOnPort } = require('yoshi-helpers/utils');
-const { setupRequireHooks } = require('yoshi-common/require-hooks');
+const { setupRequireHooks } = require('yoshi-common/build/require-hooks');
 const cdnProxy = require('./cdnProxy');
 const loadJestYoshiConfig = require('yoshi-config/jest');
 const JestWatchDebug = require('../plugins/jest-watch-debug');
@@ -84,15 +84,10 @@ module.exports = async () => {
       false,
     );
 
-    if (!webpackDevServerProcess) {
-      throw new Error(
-        `Running E2E tests requires a server to serve static files. Could not find any dev server on port ${chalk.cyan(
-          servers.cdn.port,
-        )}. Please run 'npm start' from a different terminal window.`,
-      );
-    }
-
-    if (webpackDevServerProcess.cwd !== process.cwd()) {
+    if (
+      webpackDevServerProcess &&
+      webpackDevServerProcess.cwd !== process.cwd()
+    ) {
       throw new Error(
         `A different process (${chalk.cyan(
           webpackDevServerProcess.cwd,

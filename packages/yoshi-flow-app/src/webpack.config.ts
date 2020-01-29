@@ -3,8 +3,8 @@ import webpack from 'webpack';
 import {
   validateServerEntry,
   createServerEntries,
-} from 'yoshi-common/webpack-utils';
-import { createBaseWebpackConfig } from 'yoshi-common/webpack.config';
+} from 'yoshi-common/build/webpack-utils';
+import { createBaseWebpackConfig } from 'yoshi-common/build/webpack.config';
 import { defaultEntry } from 'yoshi-helpers/constants';
 import { Config } from 'yoshi-config/build/config';
 

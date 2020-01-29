@@ -1,9 +1,11 @@
 const fs = require('fs-extra');
 const puppeteer = require('puppeteer');
 const { WS_ENDPOINT_PATH, IS_DEBUG_MODE } = require('./constants');
-const { setupRequireHooks } = require('yoshi-common/require-hooks');
+const { setupRequireHooks } = require('yoshi-common/build/require-hooks');
 const loadJestYoshiConfig = require('yoshi-config/jest');
 const { getBrowserDebugFunction } = require('./utils');
+const { servers } = require('yoshi-config');
+
 // the user's config is loaded outside of a jest runtime and should be transpiled
 // with babel/typescript, this may be run separately for every worker
 setupRequireHooks();
@@ -45,8 +47,27 @@ module.exports = class PuppeteerEnvironment extends ParentEnvironment {
     this.global.page.setDefaultNavigationTimeout(10 * 1000);
 
     this.global.page.on('pageerror', error => {
-      console.warn(`Puppeteer page error: ${error.message}`);
-      console.warn(error.stack);
+      this.global.console.warn(`Puppeteer page error: ${error.message}`);
+      this.global.console.warn(error.stack);
+    });
+
+    this.global.page.on('requestfailed', request => {
+      if (request.url().includes(servers.cdn.url)) {
+        this.global.console.warn(
+          `We found that some of your static assets failed to load:
+          url: ${request.url()}, errText: ${
+            request.failure().errorText
+          }, method: ${request.method()}
+          Please try running 'npm start' in another terminal in order to start your CDN server.
+          `,
+        );
+      } else {
+        this.global.console.warn(
+          `url: ${request.url()}, errText: ${
+            request.failure().errorText
+          }, method: ${request.method()}`,
+        );
+      }
     });
   }
 

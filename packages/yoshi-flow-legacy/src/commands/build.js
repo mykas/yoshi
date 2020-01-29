@@ -22,7 +22,8 @@ const {
   shouldRunLess,
   shouldRunSass,
 } = require('yoshi-helpers/queries');
-const createBabelConfig = require('yoshi-common/create-babel-config');
+const createBabelConfig = require('yoshi-common/build/create-babel-config')
+  .default;
 const { printAndExitOnErrors } = require('../error-handler');
 
 const runner = createRunner({
@@ -42,9 +43,9 @@ module.exports = runner.command(
 
     const babel = tasks[require.resolve('../tasks/babel')];
     const wixPetriSpecs =
-      tasks[require.resolve('yoshi-common/sync-petri-specs')];
+      tasks[require.resolve('yoshi-common/build/sync-petri-specs')];
     const wixMavenStatics =
-      tasks[require.resolve('yoshi-common/maven-statics')];
+      tasks[require.resolve('yoshi-common/build/maven-statics')];
     const wixDepCheck = tasks[require.resolve('../tasks/dep-check')];
     const ngAnnotate = tasks[require.resolve('../tasks/ng-annotate')];
 

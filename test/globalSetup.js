@@ -15,6 +15,29 @@ module.exports = async globalConfig => {
 
   await setupPuppeteer(globalConfig);
   const isPublish = !!process.env.WITH_PUBLISH;
+  const isCI = !!process.env.TEAMCITY_VERSION;
+
+  if (isPublish && !isCI && !process.env.forcePublish) {
+    console.log();
+    console.log('------------------------------------');
+    console.log();
+    console.log(`
+      Hey!
+      You are trying to run integration tests locally in a slow way,
+      using Verdaccio, which will publish the monorepo locally to your file system.
+      A better way is to use one of the 'fast' commands, from your package.json,
+      or just run 'npx jest --runInBand' with filters as you want (recommended).
+      If you still want to run those tests locally with the publish option,
+      please add the 'forcePublish' environment variable to the command.
+      Please notice that this will change some files on your file system
+      and add untracked files. Make sure you do not push those changes.
+      Good luck!
+      `);
+    console.log();
+    console.log('------------------------------------');
+
+    process.exit(1);
+  }
 
   if (isPublish) {
     console.log('Starting monorepo publish');

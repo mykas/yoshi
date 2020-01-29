@@ -12,7 +12,7 @@ const {
   getMochaReporter,
   getProjectCDNBasePath,
 } = require('yoshi-helpers/utils');
-const { setupRequireHooks } = require('yoshi-common/require-hooks');
+const { setupRequireHooks } = require('yoshi-common/build/require-hooks');
 const startRewriteForwardProxy = require('yoshi-helpers/rewrite-forward-proxy');
 const globs = require('yoshi-config/globs');
 const config = require('yoshi-config');

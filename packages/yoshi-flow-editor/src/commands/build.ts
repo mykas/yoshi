@@ -2,13 +2,13 @@ import path from 'path';
 import arg from 'arg';
 import bfj from 'bfj';
 import { BUILD_DIR, TARGET_DIR, STATS_FILE } from 'yoshi-config/paths';
-import { runWebpack } from 'yoshi-common/webpack-utils';
+import { runWebpack } from 'yoshi-common/build/webpack-utils';
 import {
   printBuildResult,
   printBundleSizeSuggestion,
-} from 'yoshi-common/print-build-results';
+} from 'yoshi-common/build/print-build-results';
 import { inTeamCity } from 'yoshi-helpers/queries';
-import { copyTemplates } from 'yoshi-common/copy-assets';
+import { copyTemplates } from 'yoshi-common/build/copy-assets';
 import fs from 'fs-extra';
 import {
   createClientWebpackConfig,
@@ -77,15 +77,14 @@ const build: cliCommand = async function(argv, config, model) {
   if (inTeamCity()) {
     await writeCiConfig(model);
 
-    const petriSpecs = (await import('yoshi-common/sync-petri-specs')).default;
-    const wixMavenStatics = (await import('yoshi-common/maven-statics'))
-      .default;
+    const petriSpecs = await import('yoshi-common/build/sync-petri-specs');
+    const wixMavenStatics = await import('yoshi-common/build/maven-statics');
 
     await Promise.all([
-      petriSpecs({
+      petriSpecs.default({
         config: config.petriSpecsConfig,
       }),
-      wixMavenStatics({
+      wixMavenStatics.default({
         clientProjectName: config.clientProjectName,
         staticsDir: config.clientFilesPath,
       }),

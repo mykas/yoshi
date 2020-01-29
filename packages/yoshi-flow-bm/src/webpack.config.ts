@@ -2,8 +2,8 @@ import { Configuration } from 'webpack';
 import {
   validateServerEntry,
   createServerEntries,
-} from 'yoshi-common/webpack-utils';
-import { createBaseWebpackConfig } from 'yoshi-common/webpack.config';
+} from 'yoshi-common/build/webpack-utils';
+import { createBaseWebpackConfig } from 'yoshi-common/build/webpack.config';
 import { Config } from 'yoshi-config/build/config';
 import {
   isTypescriptProject,

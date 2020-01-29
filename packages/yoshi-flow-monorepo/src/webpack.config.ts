@@ -4,10 +4,10 @@ import webpack from 'webpack';
 import {
   validateServerEntry,
   createServerEntries,
-} from 'yoshi-common/webpack-utils';
+} from 'yoshi-common/build/webpack-utils';
 // @ts-ignore
 import { StatsWriterPlugin } from 'webpack-stats-plugin';
-import { createBaseWebpackConfig } from 'yoshi-common/webpack.config';
+import { createBaseWebpackConfig } from 'yoshi-common/build/webpack.config';
 import { defaultEntry } from 'yoshi-helpers/constants';
 import { Config } from 'yoshi-config/build/config';
 import {

@@ -3,11 +3,11 @@ import arg from 'arg';
 import fs from 'fs-extra';
 import bfj from 'bfj';
 import { BUILD_DIR, TARGET_DIR, STATS_FILE } from 'yoshi-config/paths';
-import { runWebpack } from 'yoshi-common/webpack-utils';
+import { runWebpack } from 'yoshi-common/build/webpack-utils';
 import {
   printBuildResult,
   printBundleSizeSuggestion,
-} from 'yoshi-common/print-build-results';
+} from 'yoshi-common/build/print-build-results';
 import { inTeamCity } from 'yoshi-helpers/queries';
 import {
   createClientWebpackConfig,
@@ -69,15 +69,14 @@ const build: CliCommand = async function(argv, config) {
   const model = createFlowBMModel();
 
   if (inTeamCity()) {
-    const petriSpecs = (await import('yoshi-common/sync-petri-specs')).default;
-    const wixMavenStatics = (await import('yoshi-common/maven-statics'))
-      .default;
+    const petriSpecs = await import('yoshi-common/build/sync-petri-specs');
+    const wixMavenStatics = await import('yoshi-common/build/maven-statics');
 
     await Promise.all([
-      petriSpecs({
+      petriSpecs.default({
         config: config.petriSpecsConfig,
       }),
-      wixMavenStatics({
+      wixMavenStatics.default({
         clientProjectName: config.clientProjectName,
         staticsDir: config.clientFilesPath,
       }),

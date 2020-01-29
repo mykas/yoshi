@@ -15,7 +15,7 @@ const renderTemplate = (
   );
 };
 
-export default async function async({
+export = async function async({
   clientProjectName,
   staticsDir,
   cwd = process.cwd(),
@@ -46,4 +46,4 @@ export default async function async({
 
     await fs.outputFile(path.join(cwd, tarGZLocation as string), template);
   } catch (error) {}
-}
+};

@@ -2,8 +2,8 @@ const { isObject } = require('lodash');
 const {
   createBaseWebpackConfig,
   getStyleLoaders: getCommonStyleLoaders,
-} = require('yoshi-common/webpack.config');
-const { validateServerEntry } = require('yoshi-common/webpack-utils');
+} = require('yoshi-common/build/webpack.config');
+const { validateServerEntry } = require('yoshi-common/build/webpack-utils');
 const projectConfig = require('yoshi-config');
 const {
   isSingleEntry,

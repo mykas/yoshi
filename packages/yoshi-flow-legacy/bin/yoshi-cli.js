@@ -7,7 +7,7 @@ const infoCommand = require('../src/commands/info');
 const chalk = require('chalk');
 
 // IDEs start debugging with '--inspect' or '--inspect-brk' option. We are setting --debug instead
-require('yoshi-common/normalize-debugging-args')();
+require('yoshi-common/build/normalize-debugging-args').default();
 
 prog.version(version).description('A toolkit for building applications in Wix');
 

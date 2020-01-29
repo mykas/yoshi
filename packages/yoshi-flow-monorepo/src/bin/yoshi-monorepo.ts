@@ -7,9 +7,9 @@ process.on('unhandledRejection', error => {
 import arg from 'arg';
 import loadConfig from 'yoshi-config/loadConfig';
 import { Config } from 'yoshi-config/build/config';
-import normalizeDebuggingArgs from 'yoshi-common/normalize-debugging-args';
-import verifyDependencies from 'yoshi-common/verify-dependencies';
-import verifyNodeVersion from 'yoshi-common/verify-node-version';
+import normalizeDebuggingArgs from 'yoshi-common/build/normalize-debugging-args';
+import verifyDependencies from 'yoshi-common/build/verify-dependencies';
+import verifyNodeVersion from 'yoshi-common/build/verify-node-version';
 import loadPackageGraph, { LoadGraphResult } from '../load-package-graph';
 import verifyTypeScriptReferences from '../verify-typescript-references';
 

@@ -4,13 +4,13 @@ import fs from 'fs-extra';
 import {
   printBuildResult,
   printBundleSizeSuggestion,
-} from 'yoshi-common/print-build-results';
+} from 'yoshi-common/build/print-build-results';
 import bfj from 'bfj';
-import WebpackManager from 'yoshi-common/webpack-manager';
+import WebpackManager from 'yoshi-common/build/webpack-manager';
 import { BUILD_DIR, TARGET_DIR, STATS_FILE } from 'yoshi-config/paths';
 import chalk from 'chalk';
 import { inTeamCity as checkInTeamCity } from 'yoshi-helpers/queries';
-import { copyTemplates } from 'yoshi-common/copy-assets';
+import { copyTemplates } from 'yoshi-common/build/copy-assets';
 import { cliCommand } from '../bin/yoshi-monorepo';
 import {
   createClientWebpackConfig,
@@ -78,19 +78,18 @@ const build: cliCommand = async function(argv, rootConfig, { apps, libs }) {
   await Promise.all(apps.map(app => copyTemplates(app.location)));
 
   if (inTeamCity) {
-    const petriSpecs = (await import('yoshi-common/sync-petri-specs')).default;
-    const wixMavenStatics = (await import('yoshi-common/maven-statics'))
-      .default;
+    const petriSpecs = await import('yoshi-common/build/sync-petri-specs');
+    const wixMavenStatics = await import('yoshi-common/build/maven-statics');
 
     await Promise.all(
       apps.reduce((acc: Array<Promise<void>>, app) => {
         return [
           ...acc,
-          petriSpecs({
+          petriSpecs.default({
             config: app.config.petriSpecsConfig,
             cwd: app.location,
           }),
-          wixMavenStatics({
+          wixMavenStatics.default({
             clientProjectName: app.config.clientProjectName,
             staticsDir: app.config.clientFilesPath,
             cwd: app.location,

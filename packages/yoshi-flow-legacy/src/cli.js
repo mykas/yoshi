@@ -1,5 +1,6 @@
 const fs = require('fs');
-const verifyDependencies = require('yoshi-common/verify-dependencies');
+const verifyDependencies = require('yoshi-common/build/verify-dependencies')
+  .default;
 
 const presetPath = require.resolve('../src/index.js');
 

@@ -49,8 +49,9 @@ const {
 } = require('yoshi-helpers/utils');
 const { debounce } = require('lodash');
 const wixAppServer = require('../tasks/app-server');
-const createBabelConfig = require('yoshi-common/create-babel-config');
-const openBrowser = require('yoshi-common/open-browser');
+const createBabelConfig = require('yoshi-common/build/create-babel-config')
+  .default;
+const openBrowser = require('yoshi-common/build/open-browser').default;
 
 const runner = createRunner({
   logger: new LoggerPlugin(),
@@ -69,9 +70,9 @@ module.exports = runner.command(
     const wixCdn = tasks[require.resolve('../tasks/cdn')];
     const babel = tasks[require.resolve('../tasks/babel')];
     const wixPetriSpecs =
-      tasks[require.resolve('yoshi-common/sync-petri-specs')];
+      tasks[require.resolve('yoshi-common/build/sync-petri-specs')];
     const wixMavenStatics =
-      tasks[require.resolve('yoshi-common/maven-statics')];
+      tasks[require.resolve('yoshi-common/build/maven-statics')];
 
     const appServer = async () => {
       if (cliArgs.server === false) {

@@ -1,5 +1,6 @@
 const babelJest = require('babel-jest');
-const createBabelConfig = require('yoshi-common/create-babel-config');
+const createBabelConfig = require('yoshi-common/build/create-babel-config')
+  .default;
 const { withServerTransformer } = require('../utils');
 
 const babelConfig = createBabelConfig();

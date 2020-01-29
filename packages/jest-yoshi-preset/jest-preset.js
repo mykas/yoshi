@@ -3,7 +3,7 @@ const pick = require('lodash/pick');
 const chalk = require('chalk');
 const globby = require('globby');
 const { envs, supportedEnvs, withLatestJSDom } = require('./constants');
-const { setupRequireHooks } = require('yoshi-common/require-hooks');
+const { setupRequireHooks } = require('yoshi-common/build/require-hooks');
 const globs = require('yoshi-config/globs');
 const loadJestYoshiConfig = require('yoshi-config/jest');
 

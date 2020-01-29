@@ -1,6 +1,6 @@
 import arg from 'arg';
 import chalk from 'chalk';
-import DevEnvironment from 'yoshi-common/dev-environment';
+import DevEnvironment from 'yoshi-common/build/dev-environment';
 import { cliCommand } from '../bin/yoshi-monorepo';
 import {
   createClientWebpackConfig,

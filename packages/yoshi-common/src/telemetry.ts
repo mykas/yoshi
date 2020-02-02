@@ -41,18 +41,21 @@ biLoggerFactory.addPublisher((event, context) => {
 const biLogger = initSchemaLogger(biLoggerFactory)();
 
 export async function collectData(config: Config) {
-  const { version: yoshiVersion } = require('../package.json');
-  const isTypescriptProject = checkIsTypescriptProject();
+  // Don't fire telemetry events for Yoshi's e2e tests
+  if (process.env.NPM_PACKAGE !== 'yoshi-monorepo') {
+    const { version: yoshiVersion } = require('../package.json');
+    const isTypescriptProject = checkIsTypescriptProject();
 
-  await biLogger
-    .buildStart({
-      nodeVersion: `${semver.parse(process.version)?.major}`,
-      yoshiVersion: `${semver.parse(yoshiVersion)?.major}`,
-      projectName: config.name,
-      projectLanguage: isTypescriptProject ? 'ts' : 'js',
-    })
-    // Swallow errros
-    .catch(() => {})
-    // Ensure promise is voided
-    .then(() => {});
+    await biLogger
+      .buildStart({
+        nodeVersion: `${semver.parse(process.version)?.major}`,
+        yoshiVersion: `${semver.parse(yoshiVersion)?.major}`,
+        projectName: config.name,
+        projectLanguage: isTypescriptProject ? 'ts' : 'js',
+      })
+      // Swallow errros
+      .catch(() => {})
+      // Ensure promise is voided
+      .then(() => {});
+  }
 }

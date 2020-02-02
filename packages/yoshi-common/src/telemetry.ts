@@ -47,7 +47,7 @@ biLoggerFactory.addPublisher(async (event, context) => {
       req.end();
     });
   } catch (error) {
-    // Swallow erros
+    // Swallow errors
   }
 });
 

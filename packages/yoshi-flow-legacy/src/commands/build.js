@@ -19,7 +19,7 @@ const {
 } = require('yoshi-helpers/queries');
 const createBabelConfig = require('yoshi-common/build/create-babel-config')
   .default;
-const { buildStart } = require('yoshi-common/build/telemetry');
+const telemetry = require('yoshi-common/build/telemetry');
 const { printAndExitOnErrors } = require('../error-handler');
 
 const runner = createRunner({
@@ -31,7 +31,7 @@ const cliArgs = parseArgs(process.argv.slice(2));
 
 module.exports = runner.command(
   async tasks => {
-    await buildStart(projectConfig);
+    await telemetry.buildStart(projectConfig);
 
     if (shouldWatch) {
       return;

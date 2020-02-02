@@ -8,12 +8,7 @@ const LoggerPlugin = require('../plugins/haste-plugin-yoshi-logger');
 const globs = require('yoshi-config/globs');
 const path = require('path');
 const { STATS_FILE } = require('yoshi-config/paths');
-const {
-  petriSpecsConfig,
-  clientProjectName,
-  isAngularProject,
-  clientFilesPath,
-} = require('yoshi-config');
+const projectConfig = require('yoshi-config');
 const {
   watchMode,
   isTypescriptProject,
@@ -24,6 +19,7 @@ const {
 } = require('yoshi-helpers/queries');
 const createBabelConfig = require('yoshi-common/build/create-babel-config')
   .default;
+const { buildStart } = require('yoshi-common/build/telemetry');
 const { printAndExitOnErrors } = require('../error-handler');
 
 const runner = createRunner({
@@ -35,6 +31,8 @@ const cliArgs = parseArgs(process.argv.slice(2));
 
 module.exports = runner.command(
   async tasks => {
+    await buildStart(projectConfig);
+
     if (shouldWatch) {
       return;
     }
@@ -69,14 +67,14 @@ module.exports = runner.command(
       bundle(),
       printAndExitOnErrors(() =>
         wixPetriSpecs(
-          { config: petriSpecsConfig },
+          { config: projectConfig.petriSpecsConfig },
           { title: 'petri-specs', log: false },
         ),
       ),
       wixMavenStatics(
         {
-          clientProjectName,
-          staticsDir: clientFilesPath,
+          clientProjectName: projectConfig.clientProjectName,
+          staticsDir: projectConfig.clientFilesPath,
         },
         { title: 'maven-statics', log: false },
       ),
@@ -228,7 +226,7 @@ module.exports = runner.command(
     }
 
     function transpileNgAnnotate() {
-      if (isAngularProject) {
+      if (projectConfig.isAngularProject) {
         return ngAnnotate(
           {
             pattern: globs.baseDirs.map(dir =>

@@ -13,7 +13,7 @@ const biLoggerFactory = biLoggerClient.factory() as BiLoggerFactory<{
 // Register a custom publisher that uses Node's HTTPS API
 biLoggerFactory.addPublisher(async (event, context) => {
   // Don't collect telemetry events for Yoshi's e2e tests
-  if (process.env.NPM_PACKAGE !== 'yoshi-monorepo') {
+  if (process.env.NPM_PACKAGE === 'yoshi-monorepo') {
     return;
   }
 

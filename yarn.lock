@@ -2737,11 +2737,6 @@
   dependencies:
     "@types/node" "*"
 
-"@types/insight@^0.8.0":
-  version "0.8.0"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@types/insight/-/insight-0.8.0.tgz#12baa0119597cb2bc2bdafc35c7aebd9c6598189"
-  integrity sha1-ErqgEZWXyyvCva/DXHrr2cZZgYk=
-
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0":
   version "2.0.1"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.1.tgz#42995b446db9a48a11a07ec083499a860e9138ff"
@@ -3429,6 +3424,13 @@
     strip-ansi "^4.0.0"
     text-table "^0.2.0"
     webpack-log "^1.1.2"
+
+"@wix/bi-logger-testkit@latest":
+  version "1.0.537"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@wix/bi-logger-testkit/-/@wix/bi-logger-testkit-1.0.537.tgz#488612e4c4d19e8da7d29f6d4aa0e9e0b576343c"
+  integrity sha1-SIYS5MTRno2n0p9tSqDp4LV2NDw=
+  dependencies:
+    "@wix/wix-bi-logger-client" "~0.0.1"
 
 "@wix/business-manager-api@1.0.835":
   version "1.0.835"
@@ -6003,6 +6005,14 @@ bfj@^7.0.1:
     hoopy "^0.1.4"
     tryer "^1.0.1"
 
+bi-logger-yoshi@^1.0.6:
+  version "1.0.6"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/bi-logger-yoshi/-/bi-logger-yoshi-1.0.6.tgz#c5eb05e230a7945e5d40fc82e2d41e677dbfc230"
+  integrity sha1-xesF4jCnlF5dQPyC4tQeZ32/wjA=
+  dependencies:
+    "@wix/bi-logger-testkit" latest
+    is-url-superb "^2.0.0"
+
 big.js@^3.1.3:
   version "3.2.0"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/big.js/-/big.js-3.2.0.tgz#a5fc298b81b9e0dca2e458824784b65c52ba588e"
@@ -7331,17 +7341,6 @@ concat-stream@^2.0.0:
     inherits "^2.0.3"
     readable-stream "^3.0.2"
     typedarray "^0.0.6"
-
-conf@^1.4.0:
-  version "1.4.0"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/conf/-/conf-1.4.0.tgz#1ea66c9d7a9b601674a5bb9d2b8dc3c726625e67"
-  integrity sha1-HqZsnXqbYBZ0pbudK43DxyZiXmc=
-  dependencies:
-    dot-prop "^4.1.0"
-    env-paths "^1.0.0"
-    make-dir "^1.0.0"
-    pkg-up "^2.0.0"
-    write-file-atomic "^2.3.0"
 
 config-chain@^1.1.11, config-chain@~1.1.5:
   version "1.1.12"
@@ -8793,7 +8792,7 @@ dot-prop@^3.0.0:
   dependencies:
     is-obj "^1.0.0"
 
-dot-prop@^4.1.0, dot-prop@^4.1.1, dot-prop@^4.2.0:
+dot-prop@^4.1.1, dot-prop@^4.2.0:
   version "4.2.0"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/dot-prop/-/dot-prop-4.2.0.tgz#1f19e0c2e1aa0e32797c49799f2837ac6af69c57"
   integrity sha1-HxngwuGqDjJ5fEl5nyg3rGr2nFc=
@@ -9009,11 +9008,6 @@ entities@^2.0.0:
   version "2.0.0"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/entities/-/entities-2.0.0.tgz#68d6084cab1b079767540d80e56a39b423e4abf4"
   integrity sha1-aNYITKsbB5dnVA2A5Wo5tCPkq/Q=
-
-env-paths@^1.0.0:
-  version "1.0.0"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/env-paths/-/env-paths-1.0.0.tgz#4168133b42bb05c38a35b1ae4397c8298ab369e0"
-  integrity sha1-QWgTO0K7BcOKNbGuQ5fIKYqzaeA=
 
 env-paths@^2.2.0:
   version "2.2.0"
@@ -12198,7 +12192,7 @@ inquirer@^1.0.0:
     strip-ansi "^3.0.0"
     through "^2.3.6"
 
-inquirer@^6.2.0, inquirer@^6.2.1, inquirer@^6.2.2, inquirer@^6.3.1:
+inquirer@^6.2.0, inquirer@^6.2.1, inquirer@^6.2.2:
   version "6.5.2"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/inquirer/-/inquirer-6.5.2.tgz#ad50942375d036d327ff528c08bd5fab089928ca"
   integrity sha1-rVCUI3XQNtMn/1KMCL1fqwiZKMo=
@@ -12235,21 +12229,6 @@ inquirer@^7.0.0:
     string-width "^4.1.0"
     strip-ansi "^5.1.0"
     through "^2.3.6"
-
-insight@^0.10.3:
-  version "0.10.3"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/insight/-/insight-0.10.3.tgz#e7fa6593fd11323d227154cc8ce5f8bff638bf02"
-  integrity sha1-5/plk/0RMj0icVTMjOX4v/Y4vwI=
-  dependencies:
-    async "^2.6.2"
-    chalk "^2.4.2"
-    conf "^1.4.0"
-    inquirer "^6.3.1"
-    lodash.debounce "^4.0.8"
-    os-name "^3.1.0"
-    request "^2.88.0"
-    tough-cookie "^3.0.1"
-    uuid "^3.3.2"
 
 intercept-stdout@0.1.2:
   version "0.1.2"
@@ -12770,6 +12749,13 @@ is-typedarray@^1.0.0, is-typedarray@~1.0.0:
   version "1.0.0"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/is-typedarray/-/is-typedarray-1.0.0.tgz#e479c80858df0c1b11ddda6940f96011fcda4a9a"
   integrity sha1-5HnICFjfDBsR3dppQPlgEfzaSpo=
+
+is-url-superb@^2.0.0:
+  version "2.0.0"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/is-url-superb/-/is-url-superb-2.0.0.tgz#b728a18cf692e4d16da6b94c7408a811db0d0492"
+  integrity sha1-tyihjPaS5NFtprlMdAioEdsNBJI=
+  dependencies:
+    url-regex "^3.0.0"
 
 is-utf8@^0.2.0:
   version "0.2.1"
@@ -14509,11 +14495,6 @@ lodash.create@3.1.1:
     lodash._baseassign "^3.0.0"
     lodash._basecreate "^3.0.0"
     lodash._isiterateecall "^3.0.0"
-
-lodash.debounce@^4.0.8:
-  version "4.0.8"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
-  integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
 
 lodash.defaults@^4.0.1, lodash.defaults@^4.2.0:
   version "4.2.0"
@@ -17281,7 +17262,7 @@ pkg-dir@^3.0.0:
   dependencies:
     find-up "^3.0.0"
 
-pkg-up@2.0.0, pkg-up@^2.0.0:
+pkg-up@2.0.0:
   version "2.0.0"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/pkg-up/-/pkg-up-2.0.0.tgz#c819ac728059a461cab1c3889a2be3c49a004d7f"
   integrity sha1-yBmscoBZpGHKscOImivjxJoATX8=
@@ -22077,6 +22058,13 @@ url-parse@^1.4.3, url-parse@~1.4.3:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
 
+url-regex@^3.0.0:
+  version "3.2.0"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/url-regex/-/url-regex-3.2.0.tgz#dbad1e0c9e29e105dd0b1f09f6862f7fdb482724"
+  integrity sha1-260eDJ4p4QXdCx8J9oYvf9tIJyQ=
+  dependencies:
+    ip-regex "^1.0.1"
+
 url-regex@^4.1.1:
   version "4.1.1"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/url-regex/-/url-regex-4.1.1.tgz#a5617b22e15e26dac57ce74c3f52088bcdfec995"
@@ -22767,6 +22755,11 @@ with-callback@^1.0.2:
   version "1.0.2"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/with-callback/-/with-callback-1.0.2.tgz#a09629b9a920028d721404fb435bdcff5c91bc21"
   integrity sha1-oJYpuakgAo1yFAT7Q1vc/1yRvCE=
+
+wix-bi-logger-client@^0.0.724:
+  version "0.0.724"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/wix-bi-logger-client/-/wix-bi-logger-client-0.0.724.tgz#11271ee7b0da544fcbef802f4ca7b46118082eb9"
+  integrity sha1-ESce57DaVE/L74AvTKe0YRgILrk=
 
 wix-eventually@2.2.0:
   version "2.2.0"

@@ -1,51 +1,24 @@
-import https from 'https';
 import semver from 'semver';
 import biLoggerClient, { BiLoggerFactory } from 'wix-bi-logger-client';
-import initSchemaLogger from 'bi-logger-yoshi';
+import initSchemaLogger, { getLoggerConf } from 'bi-logger-yoshi';
 import { isTypescriptProject, inTeamCity } from 'yoshi-helpers/build/queries';
 import { Config } from 'yoshi-config/build/config';
+import { requestHttps } from './utils/helpers';
 
 // Create BI factory
-const biLoggerFactory = biLoggerClient.factory() as BiLoggerFactory<{
-  endpoint: 'string';
-}>;
+const biLoggerFactory = biLoggerClient.factory() as BiLoggerFactory<
+  ReturnType<typeof getLoggerConf>
+>;
 
 // Register a custom publisher that uses Node's HTTPS API
-biLoggerFactory.addPublisher(async (event, context) => {
-  // Don't collect telemetry events for Yoshi's e2e tests
-  if (process.env.NPM_PACKAGE === 'yoshi-monorepo') {
-    return;
-  }
-
+biLoggerFactory.addPublisher(async (eventParams, context) => {
   // Collect telemetry only on CI builds
   if (!inTeamCity()) {
     return;
   }
 
-  const queryParams = Object.entries(event)
-    .map(([key, value]) => `${key}=${encodeURIComponent(`${value}`)}`)
-    .join('&');
-
   try {
-    await new Promise((resolve, reject) => {
-      const req = https.request(
-        `frog.wix.com/${context.endpoint}?${queryParams}`,
-        res => {
-          if (
-            (res.statusCode && res.statusCode < 200) ||
-            (res.statusCode && res.statusCode >= 300)
-          ) {
-            return reject(`Status code: ${res.statusCode}`);
-          }
-
-          res.on('end', resolve);
-        },
-      );
-
-      req.on('error', reject);
-
-      req.end();
-    });
+    await requestHttps(`frog.wix.com/${context.endpoint}`, eventParams);
   } catch (error) {
     // Swallow errors
   }
@@ -54,6 +27,7 @@ biLoggerFactory.addPublisher(async (event, context) => {
 // Create logger
 const biLogger = initSchemaLogger(biLoggerFactory)();
 
+// Function to fire an event
 export async function buildStart(config: Config) {
   const { version: yoshiVersion } = require('../package.json');
 
@@ -62,5 +36,6 @@ export async function buildStart(config: Config) {
     yoshiVersion: `${semver.parse(yoshiVersion)?.major}`,
     projectName: config.name,
     projectLanguage: isTypescriptProject() ? 'ts' : 'js',
+    isTestEvent: process.env.NPM_PACKAGE === 'yoshi-monorepo',
   });
 }

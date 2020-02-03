@@ -71,9 +71,6 @@ module.exports = {
     'jsx-a11y/role-supports-aria-props': 'warn',
     'jsx-a11y/scope': 'warn',
 
-    // https://github.com/wix/wix-ui/tree/master/packages/eslint-plugin-wix-style-react
-    'wix-style-react/no-full-wsr-lib': 'error',
-
     // https://github.com/facebook/react/tree/master/packages/eslint-plugin-react-hooks
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',

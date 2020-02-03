@@ -82,6 +82,7 @@ export default class Server {
       const chunk = importFresh(absolutePath) as RouteFunction<any>;
       const relativePath = `/${relativeFilePath(routesBuildDir, absolutePath)}`;
       const routePath = relativePath.replace(/\[(\w+)\]/g, ':$1');
+
       return {
         route: routePath === '/index' ? '/' : routePath,
         handler: async (req, res, params) => {

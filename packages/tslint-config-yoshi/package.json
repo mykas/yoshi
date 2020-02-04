@@ -16,7 +16,6 @@
   },
   "peerDependencies": {
     "tslint": ">=5.10.0",
-    "tslint-plugin-wix-style-react": "^1.0.0",
     "tslint-react-hooks": "^2.1.0"
   }
 }
